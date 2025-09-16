@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: 249 14% 7%;
+  --fg: 210 20% 98%;
+  --muted: 240 6% 20%;
+  --border: 240 5% 26%;
+  --card: 240 10% 10%;
+  --card-foreground: 210 20% 98%;
+  --primary: 263 70% 50%;
+  --primary-foreground: 0 0% 100%;
+  --accent: 160 84% 39%;
+  --accent-foreground: 255 90% 10%;
+  --ring: 263 70% 50%;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-background text-foreground antialiased;
+  background-image: radial-gradient(90% 60% at 10% 10%, hsl(var(--accent)/0.06), transparent),
+    radial-gradient(70% 40% at 90% 10%, hsl(var(--primary)/0.08), transparent),
+    radial-gradient(60% 50% at 50% 100%, hsl(var(--accent)/0.05), transparent);
+}
+
+::selection {
+  background: hsl(var(--primary)/0.25);
+}
+
+.container {
+  @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+}
+
+.section {
+  @apply py-16 sm:py-20 lg:py-24;
+}
+
+.section-title {
+  @apply mb-6 text-2xl font-semibold tracking-tight text-foreground/90 sm:text-3xl;
+}
+
+.card {
+  @apply relative flex h-full flex-col overflow-hidden rounded-xl border border-border bg-card shadow-soft;
+}
+
+.focus-ring {
+  @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background;
+}
