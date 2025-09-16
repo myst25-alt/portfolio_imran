@@ -5,6 +5,7 @@ import { cn } from "@/lib/cn";
 import { IconLink } from "@/components/ui/IconLink";
 import { Github, Instagram, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/Button";
+import { site } from "@/data/site";
 
 const links = [
   { id: "home", label: "Home" },
@@ -46,7 +47,7 @@ export function Navbar() {
     <div className={cn("sticky top-0 z-50 w-full backdrop-blur supports-[backdrop-filter]:bg-background/60", scrolled ? "border-b border-border" : "border-transparent")}>
       <div className="container flex h-16 items-center justify-between">
         <Link href="#home" className="text-sm font-semibold tracking-wide focus-ring">
-          Imran Uzair
+          {site.name}
         </Link>
         <nav className="hidden gap-6 md:flex">
           {links.map((l) => (
@@ -64,13 +65,13 @@ export function Navbar() {
         </nav>
         <div className="flex items-center gap-2">
           <div className="hidden items-center gap-2 sm:flex">
-            <IconLink href="https://github.com/myst25-alt" label="GitHub">
+            <IconLink href={site.socials.github} label="GitHub">
               <Github size={18} />
             </IconLink>
-            <IconLink href="https://www.instagram.com/" label="Instagram">
+            <IconLink href={site.socials.instagram} label="Instagram">
               <Instagram size={18} />
             </IconLink>
-            <IconLink href="https://www.linkedin.com/in/" label="LinkedIn">
+            <IconLink href={site.socials.linkedin} label="LinkedIn">
               <Linkedin size={18} />
             </IconLink>
           </div>

@@ -1,4 +1,3 @@
-import { Chip } from "@/components/ui/Chip";
 import { Button } from "@/components/ui/Button";
 import Link from "next/link";
 
@@ -18,12 +17,12 @@ export function Hero() {
             Hyderabad-based, 24 years old — crafting cinematic edits and crisp social-ready cuts.
           </p>
           <div className="flex gap-3">
-            <Button asChild>
-              <Link href="#projects">View Projects</Link>
-            </Button>
-            <Button variant="outline" asChild>
-              <Link href="#contact">Contact</Link>
-            </Button>
+            <Link href="#projects">
+              <Button>View Projects</Button>
+            </Link>
+            <Link href="#contact">
+              <Button variant="outline">Contact</Button>
+            </Link>
           </div>
         </div>
         <div className="relative h-64 overflow-hidden rounded-2xl border border-border bg-gradient-to-tr from-primary/20 to-accent/20 shadow-soft lg:h-80">

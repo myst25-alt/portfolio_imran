@@ -1,17 +1,21 @@
+"use client";
 import Image from "next/image";
+import { useState } from "react";
 import { projects } from "@/data/projects";
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/Card";
 import { Chip } from "@/components/ui/Chip";
 import { Button } from "@/components/ui/Button";
 
 function Media({ src, alt }: { src?: string; alt: string }) {
+  const [errored, setErrored] = useState(false);
   return (
     <div className="relative aspect-[16/9] w-full overflow-hidden border-b border-border">
-      {src ? (
+      {src && !errored ? (
         <Image
           src={src}
           alt={alt}
           fill
+          onError={() => setErrored(true)}
           className="object-cover"
           sizes="(min-width:1536px) 25vw, (min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw"
           priority={false}
@@ -53,12 +57,12 @@ export function Projects() {
                 <div className="flex gap-2">
                   {p.links?.demo ? (
                     <a href={p.links.demo} target="_blank" rel="noreferrer noopener" aria-label={`Open demo for ${p.title}`}> 
-                      <Button size="sm">Live View</Button>
+                      <Button size="md">Live View</Button>
                     </a>
                   ) : null}
                   {p.links?.github ? (
                     <a href={p.links.github} target="_blank" rel="noreferrer noopener" aria-label={`Open GitHub for ${p.title}`}>
-                      <Button size="sm" variant="outline">GitHub</Button>
+                      <Button size="md" variant="outline">GitHub</Button>
                     </a>
                   ) : null}
                 </div>

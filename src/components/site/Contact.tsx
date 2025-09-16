@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { Button } from "@/components/ui/Button";
+import { site } from "@/data/site";
 
 export function Contact() {
   const [status, setStatus] = useState<string | null>(null);
@@ -27,7 +28,7 @@ export function Contact() {
             Prefer email or socials? I’m flexible. Send a quick note and I’ll reply within 24 hours.
           </p>
           <div className="mt-4 space-y-2 text-sm text-foreground/80">
-            <p>Email: <a href="mailto:you@example.com" className="underline decoration-primary/50 underline-offset-4">you@example.com</a></p>
+            <p>Email: <a href={`mailto:${site.email}`} className="underline decoration-primary/50 underline-offset-4">{site.email}</a></p>
           </div>
         </div>
         <form onSubmit={onSubmit} className="space-y-4">
